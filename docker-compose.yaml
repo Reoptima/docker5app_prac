@@ -1,0 +1,44 @@
+version: '3'
+services:
+  python:
+    build:
+      context: .
+      dockerfile: calc-py/Dockerfile
+    image: python-image
+    container_name: python-container
+  
+  dart:
+    build:
+      context: .
+      dockerfile: dart-calc/Dockerfile
+    image: dart-image
+    container_name: dart-container
+  
+  nginx:
+    build:
+      context: .
+      dockerfile: site/Dockerfile
+    image: nginx-image
+    container_name: nginx-container
+    ports:
+      - "80:80"
+  
+  java:
+    build:
+      context: .
+      dockerfile: calc-java/Dockerfile
+    image: java-calc-image
+    container_name: java-container-calc
+  
+  java2:
+    build:
+      context: .
+      dockerfile: game-java/Dockerfile
+    image: java-game-image
+    container_name: java-container-game
+  python2:
+    build:
+      context: .
+      dockerfile: rpsgame-py/Dockerfile
+    image: python-image-game
+    container_name: python-container-game
